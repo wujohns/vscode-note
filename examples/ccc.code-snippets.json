@@ -1,0 +1,17 @@
+/**
+ * cocos creator 代码片段集合
+ *
+ * @author wujohns
+ * @date 18/6/6
+ */
+{
+    "ccc test sinnpet": {
+        "scope": "javascript",  // 该 sinnpet 适配 javascript
+        "prefix": "cct",        // sinnpet 的关键字（在js文件中输入 "cct" 时就会出现该 sinnept 的提示 ）
+        "body": [       // 模板的主体内容，数组中的每一项代表一行
+			"console.log(`test $1`);",
+			"$2"
+		],
+		"description": "测试"   // 呼出该 sinnpet 时的文字提示
+    }
+}
