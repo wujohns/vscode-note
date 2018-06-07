@@ -78,6 +78,11 @@ console.log(`test `);
 ### 进阶使用
 变量替换部分，可将指定的变量格式化处理后插入指定位置，目前用不上这样的功能，之后用上后再做记录
 
+## 修改自定义代码片段的优先级
+默认情况下，自定义代码片段的优先级较低，在用户设置中可以修改（`ctrl+shift+p` 输入 `settings` 找到 `用户配置`），修改其中的 `editor.snippetSuggestions` 选项为 `top` 即可让自定义代码片段在提示中显示在最上面。
+
+备注：默认的 `inline` 基本还是挺不错的，感觉不用修改。
+
 ## 具体案例参考
 [examples/ccc.code-snippets.json](/examples/ccc.code-snippets.json)
 
