@@ -5,13 +5,47 @@
  * @date 18/6/6
  */
 {
-    "ccc test sinnpet": {
+    // 初始简单案例
+    "ex1": {
         "scope": "javascript",  // 该 sinnpet 适配 javascript
-        "prefix": "cct",        // sinnpet 的关键字（在js文件中输入 "cct" 时就会出现该 sinnept 的提示 ）
+        "prefix": "cc1",        // sinnpet 的关键字（在js文件中输入 "cct" 时就会出现该 sinnept 的提示 ）
         "body": [       // 模板的主体内容，数组中的每一项代表一行
 			"console.log(`test $1`);",
 			"$2"
 		],
-		"description": "测试"   // 呼出该 sinnpet 时的文字提示
+		"description": "ccc基础测试"   // 呼出该 sinnpet 时的文字提示
+    },
+
+    // 包含默认值的设定
+	"ex2": {
+		"scope": "javascript",
+		"prefix": "cc2",
+		"body": [
+            "console.log(`test ${1:foo}`);",    // 代码生成后这里光标的默认值为 foo
+			"$2"
+        ],
+        "description": "ccc默认值测试"   // 呼出该 sinnpet 时的文字提示
+    },
+    
+    // 可选默认值
+    "ex3": {
+        "scope": "javascript",
+        "prefix": "cc3",
+        "body": [
+            "console.log(`test ${1|foo,bar|}`)",   // 代码生成后这里光标会有可选默认值 foo 与 bar
+            "$2"
+        ],
+        "description": "ccc可选默认值测试"  // 呼出该 sinnpet 时的文字提示
+    },
+
+    // 使用内置变量
+    "ex4": {
+        "scope": "javascript",
+        "prefix": "cc4",
+        "body": [
+            "console.log(`test $TM_DIRECTORY`)",    // 代码生成后这里的值为当前文件所在目录
+            "$1"
+        ],
+        "description": "ccc使用内置变量"    // 呼出该 sinnpet 时的文字提示
     }
 }

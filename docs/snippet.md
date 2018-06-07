@@ -36,11 +36,52 @@ console.log(`test `);
 
 且光标位于 $1 处（使用方向键向下可移动光标到 $2 处）
 
-### body 字段详细
+## body 字段说明
+### 基础使用
+```json
+// 包含默认值的设定
+"ex2": {
+    "scope": "javascript",
+    "prefix": "cc2",
+    "body": [
+        "console.log(`test ${1:foo}`);",    // 代码生成后这里光标的默认值为 foo
+        "$2"
+    ],
+    "description": "ccc默认值测试"   // 呼出该 sinnpet 时的文字提示
+},
 
+// 可选默认值
+"ex3": {
+    "scope": "javascript",
+    "prefix": "cc3",
+    "body": [
+        "console.log(`test ${1|foo,bar|}`)",   // 代码生成后这里光标会有可选默认值 foo 与 bar
+        "$2"
+    ],
+    "description": "ccc可选默认值测试"  // 呼出该 sinnpet 时的文字提示
+},
+
+// 使用内置变量
+"ex4": {
+    "scope": "javascript",
+    "prefix": "cc4",
+    "body": [
+        "console.log(`test $TM_DIRECTORY`)",    // 代码生成后这里的值为当前文件所在目录
+        "$1"
+    ],
+    "description": "ccc使用内置变量"    // 呼出该 sinnpet 时的文字提示
+}
+```
+
+基础的使用部分包含默认值、可选默认值以及内置变量使用，这些使用都很简单，直接参考上述案例即可。
+
+### 进阶使用
+变量替换部分，可将指定的变量格式化处理后插入指定位置，目前用不上这样的功能，之后用上后再做记录
 
 ## 具体案例参考
 [examples/ccc.code-snippets.json](/examples/ccc.code-snippets.json)
 
 ## 参考链接
 [Add code snippets for CLANG in VS Code](https://blog.csdn.net/maokelong95/article/details/54379046)
+
+备注：该链接中对内置变量有详细说明，`snippet` 的详细语法可以参考官方给出的 EBNF 范式
