@@ -44,7 +44,25 @@
 
 需要注意的是这里的 `preLaunchTask` 所对应的任务的 `isBackground` 属性需要为 `false`，否则 `launch` 无法判断任务是否执行完毕。
 
-// TODO `isBackground` 部分需要额外试验
+如果需要将 `isBackground` 为 `true` 的任务作为 `preLaunchTask`，则需要给该任务配置 `problemMatcher` 才能被 `launch` 追踪到，`problemMatcher` 的作用是是任务的输出进行解析，将解析出的问题显示在 `问题` 窗口中。如果没有添加 `problemMatcher` 的需求，则可以添加一个空的 `problemMatcher` 如下所示：
+
+```json
+{
+    ...
+    "isBackground": true,
+    "problemMatcher": {
+        "owner": "custom",
+        "pattern": { "regexp": "_______" },
+        "background": {
+            "activeOnStart": true,
+            "beginsPattern": "begin",
+            "endsPattern": "end"
+        }
+    }
+}
+```
+
+备注：`problemMatcher` 部分详细可以参考 `vscode` 官方文档，在某些场景下还是挺有用的。
 
 ## 详细参考
 [vscode tasks使用官方文档](https://code.visualstudio.com/docs/editor/tasks)
